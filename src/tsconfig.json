@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "sourceMap": true,
+        "inlineSources": true,
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "experimentalDecorators": false,
+        "strictNullChecks": true,
+        "newLine": "LF",
+        "charset": "utf-8",
+        "lib": [
+            "es2015",
+            "es2015.promise"
+        ]
+    }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "fixmapsources",
+  "version": "1.0.0-rc.1",
+  "description": "Fixes paths on sourcemaps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diegovilar/fixmapsources"
+  },
+  "author": "Diego Vilar <diegovilar@gmail.com> (https://github.com/diegovilar)",
+  "license": "MIT",
+  "main": "build/cjs/lib.js",
+  "types": "build/cjs/lib.d.ts",
+  "typings": "build/cjs/lib.d.ts",
+  "module": "build/es2015/lib.js",
+  "jsnext:main": "build/es2015/lib.js",
+  "bin": {
+    "fixmapsources": "./bin/fixmapsources"
+  },
+  "engines": {
+    "node": "~6.10.0",
+    "npm": "~3.10.10"
+  },
+  "files": [
+    "bin",
+    "build"
+  ],
+  "scripts": {
+    "postinstall": "npm build",
+    "tsc:check": "tsc -p ./src/tsconfig.json --noEmit",
+    "tsc:build-cjs": "tsc -p ./src/tsconfig.json --outDir ./build/cjs",
+    "tsc:build-es2015": "tsc -p ./src/tsconfig.json --outDir ./build/es2015 --target es2015 --module es2015",
+    "prebuild": "rimraf ./build",
+    "build": "npm run tsc:build-cjs && npm run tsc:build-es2015"
+  },
+  "dependencies": {
+    "glob": "5",
+    "yargs": "^7.0.2"
+  },
+  "devDependencies": {
+    "@types/glob": "^5.0.30",
+    "@types/node": "6",
+    "@types/yargs": "^6.6.0",
+    "pascal-case": "^2.0.1",
+    "rimraf": "^2.6.1",
+    "typescript": "^2.2.2"
+  }
+}

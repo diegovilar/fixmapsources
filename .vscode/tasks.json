@@ -1,0 +1,47 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "tasks": [{
+        "taskName": "build",
+        "command": "npm",
+        "args": [
+            "run",
+            "build"
+        ],
+        "isShellCommand": true,
+        "suppressTaskName": true,
+        "echoCommand": true,
+        "isBuildCommand": true,
+        "problemMatcher": ["$tsc"]
+    }, {
+        "taskName": "tsc:check-no-emit",
+        "suppressTaskName": true,
+        "command": "tsc",
+        "isShellCommand": true,
+        "echoCommand": true,
+        "args": [
+            "-p",
+            "./src",
+            "--noEmit"
+        ],
+        "isBuildCommand": false,
+        "problemMatcher": [
+            "$tsc"
+        ]
+    }, {
+        "taskName": "tsc:watch-no-emit",
+        "suppressTaskName": true,
+        "command": "tsc",
+        "isShellCommand": true,
+        "echoCommand": true,
+        "args": [
+            "-p",
+            "./src",
+            "--noEmit",
+            "-w"
+        ],
+        "isBackground": true,
+        "problemMatcher": ["$tsc"]
+    }]
+}
