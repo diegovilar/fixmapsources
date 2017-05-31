@@ -1,47 +1,40 @@
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
-    "version": "0.1.0",
-    "tasks": [{
-        "taskName": "build",
-        "command": "npm",
-        "args": [
-            "run",
-            "build"
-        ],
-        "isShellCommand": true,
-        "suppressTaskName": true,
-        "echoCommand": true,
-        "isBuildCommand": true,
-        "problemMatcher": ["$tsc"]
-    }, {
-        "taskName": "tsc:check-no-emit",
-        "suppressTaskName": true,
-        "command": "tsc",
-        "isShellCommand": true,
-        "echoCommand": true,
-        "args": [
-            "-p",
-            "./src",
-            "--noEmit"
-        ],
-        "isBuildCommand": false,
-        "problemMatcher": [
-            "$tsc"
-        ]
-    }, {
-        "taskName": "tsc:watch-no-emit",
-        "suppressTaskName": true,
-        "command": "tsc",
-        "isShellCommand": true,
-        "echoCommand": true,
-        "args": [
-            "-p",
-            "./src",
-            "--noEmit",
-            "-w"
-        ],
-        "isBackground": true,
-        "problemMatcher": ["$tsc"]
-    }]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "build",
+            "suppressTaskName": true,
+            "group": "build",
+            "type": "shell",
+            "command": "yarn",
+            "args": [
+                "run",
+                "build"
+            ],
+            "terminal": {
+                "reveal": "always",
+                "echo": true
+            },
+            "problemMatcher": [
+                "$tsc"
+            ]
+        },
+        {
+            "taskName": "clean",
+            "suppressTaskName": true,
+            "group": "clean",
+            "type": "shell",
+            "command": "yarn",
+            "args": [
+                "run",
+                "clean"
+            ],
+            "terminal": {
+                "reveal": "never",
+                "echo": true
+            }
+        }
+    ]
 }

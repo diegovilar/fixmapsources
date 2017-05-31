@@ -1,6 +1,6 @@
 {
   "name": "fixmapsources",
-  "version": "1.0.0-rc.1",
+  "version": "2.0.0-beta.1",
   "description": "Fixes paths on sourcemaps",
   "repository": {
     "type": "git",
@@ -8,6 +8,9 @@
   },
   "author": "Diego Vilar <diegovilar@gmail.com> (https://github.com/diegovilar)",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "main": "build/cjs/lib.js",
   "types": "build/cjs/lib.d.ts",
   "typings": "build/cjs/lib.d.ts",
@@ -17,20 +20,18 @@
     "fixmapsources": "./bin/fixmapsources"
   },
   "engines": {
-    "node": "~6.10.0",
-    "npm": "~3.10.10"
+    "node": ">=6.0.0"
   },
   "files": [
     "bin",
     "build"
   ],
   "scripts": {
-    "postinstall": "npm build",
-    "tsc:check": "tsc -p ./src/tsconfig.json --noEmit",
-    "tsc:build-cjs": "tsc -p ./src/tsconfig.json --outDir ./build/cjs",
-    "tsc:build-es2015": "tsc -p ./src/tsconfig.json --outDir ./build/es2015 --target es2015 --module es2015",
-    "prebuild": "rimraf ./build",
-    "build": "npm run tsc:build-cjs && npm run tsc:build-es2015"
+    "prepublishOnly": "yarn run build",
+    "tsc.cjs": "tsc -p ./src/tsconfig-cjs.json",
+    "tsc.es2015": "tsc -p ./src/tsconfig-es2015.json",
+    "clean": "rimraf ./build",
+    "build": "yarn run clean && yarn run tsc.cjs && yarn run tsc.es2015"
   },
   "dependencies": {
     "glob": "5",
@@ -42,6 +43,6 @@
     "@types/yargs": "^6.6.0",
     "pascal-case": "^2.0.1",
     "rimraf": "^2.6.1",
-    "typescript": "^2.2.2"
+    "typescript": "^2.3.4"
   }
 }

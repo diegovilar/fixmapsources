@@ -9,7 +9,7 @@
         "inlineSources": true,
         "noImplicitAny": true,
         "suppressImplicitAnyIndexErrors": true,
-        "experimentalDecorators": false,
+        "experimentalDecorators": true,
         "strictNullChecks": true,
         "newLine": "LF",
         "charset": "utf-8",
